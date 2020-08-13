@@ -19,7 +19,8 @@
     "eject": "react-scripts eject",
     "lint": "yarn lint:js",
     "lint:js": "eslint --ignore-path .gitignore .",
-    "lint:fix": "yarn lint:js --fix"
+    "lint:fix": "yarn lint:js --fix",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,7 +38,9 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^4.12.1",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-cypress": "^2.11.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11"
   },

@@ -28,7 +28,7 @@ const ToDoAdd = () => {
 
   return (
     <form onSubmit={createTodo}>
-      <input type="text" onChange={updateTodo} value={todo.title} />
+      <input id="add-todo" type="text" onChange={updateTodo} value={todo.title} />
       <button type="submit">+</button>
     </form>
   );
