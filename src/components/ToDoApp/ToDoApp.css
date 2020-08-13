@@ -19,6 +19,11 @@ form {
   margin-bottom: 1rem;
 }
 
-ul li.completed {
+ul li button {
+  background: transparent;
+  border: none;
+}
+
+ul li.completed button {
   text-decoration: line-through;
 }

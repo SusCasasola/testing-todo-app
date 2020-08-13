@@ -1,5 +1,5 @@
 import React, {
-  useContext, createContext, useState, useCallback
+  useContext, createContext, useState, useCallback,
 } from 'react';
 
 const ToDoContext = createContext({
@@ -16,26 +16,24 @@ export const useTodoList = () => {
 export const useTodoFunctions = () => {
   const { addTodo, completeTodo } = useContext(ToDoContext);
   return { addTodo, completeTodo };
-}
+};
 
-export const ToDoProvider = ({ children }) => {
+export const ToDoProvider = ({ children }) => { //eslint-disable-line
   const [contextValues, setContextValues] = useState({
-    todos: []
+    todos: [],
   });
-
-  console.log(contextValues.todos)
 
   const addTodo = useCallback((newTodo) => {
     setContextValues({
       ...contextValues,
-      todos: [...contextValues.todos, newTodo]
+      todos: [...contextValues.todos, newTodo],
     });
   }, [contextValues, setContextValues]);
 
   const completeTodo = useCallback((todo) => {
     const newTodoList = contextValues.todos;
     const todoIndex = newTodoList.indexOf(todo);
-    newTodoList[todoIndex] = {...newTodoList[todoIndex], completed: true}
+    newTodoList[todoIndex] = { ...newTodoList[todoIndex], completed: true };
 
     setContextValues({
       ...contextValues,
@@ -47,5 +45,5 @@ export const ToDoProvider = ({ children }) => {
     <ToDoContext.Provider value={{ ...contextValues, addTodo, completeTodo }}>
       {children}
     </ToDoContext.Provider>
-  )
-}
+  );
+};

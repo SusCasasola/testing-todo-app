@@ -16,4 +16,4 @@ const ToDoApp = () => (
   </ToDoProvider>
 );
 
-export default ToDoApp
+export default ToDoApp;

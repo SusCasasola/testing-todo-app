@@ -4,7 +4,7 @@ import { useTodoList, useTodoFunctions } from '../../context/ToDoContext';
 
 const ToDoList = () => {
   const todos = useTodoList();
-  const {completeTodo} = useTodoFunctions();
+  const { completeTodo } = useTodoFunctions();
 
   const setCompletedTodo = (todo) => {
     completeTodo(todo);
@@ -16,13 +16,14 @@ const ToDoList = () => {
         <li
           key={todo.title}
           className={todo.completed ? 'completed' : ''}
-          onClick={() => setCompletedTodo(todo)}
         >
-          {todo.title}
+          <button type="button" onClick={() => setCompletedTodo(todo)}>
+            {todo.title}
+          </button>
         </li>
       ))}
     </ul>
-  )
+  );
 };
 
 export default ToDoList;

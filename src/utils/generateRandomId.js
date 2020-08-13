@@ -1,5 +1,3 @@
-const generateRandomId = () => {
-  return '_' + Math.random().toString(36).substr(2, 9);
-}
+const generateRandomId = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
 export default generateRandomId;

@@ -7,7 +7,7 @@ const ToDoTitle = () => {
 
   return (
     <h1>{`Total de tareas: ${todos?.length}`}</h1>
-  )
-}
+  );
+};
 
 export default ToDoTitle;
