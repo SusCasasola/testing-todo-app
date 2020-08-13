@@ -6,7 +6,11 @@ const ToDoTitle = () => {
   const todos = useTodoList();
 
   return (
-    <h1>{`Total de tareas: ${todos?.length}`}</h1>
+    <h1>
+      {todos.length
+        ? `Total de tareas: ${todos?.length}`
+        : 'No hay tareas. Agrega nuevas.'}
+    </h1>
   );
 };
 

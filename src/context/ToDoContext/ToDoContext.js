@@ -1,6 +1,7 @@
 import React, {
   useContext, createContext, useState, useCallback,
 } from 'react';
+import PropTypes from 'prop-types';
 
 const ToDoContext = createContext({
   todos: [],
@@ -18,10 +19,8 @@ export const useTodoFunctions = () => {
   return { addTodo, completeTodo };
 };
 
-export const ToDoProvider = ({ children }) => { //eslint-disable-line
-  const [contextValues, setContextValues] = useState({
-    todos: [],
-  });
+export const ToDoProvider = ({ values, children }) => {
+  const [contextValues, setContextValues] = useState({ ...values });
 
   const addTodo = useCallback((newTodo) => {
     setContextValues({
@@ -42,8 +41,24 @@ export const ToDoProvider = ({ children }) => { //eslint-disable-line
   }, [contextValues, setContextValues]);
 
   return (
-    <ToDoContext.Provider value={{ ...contextValues, addTodo, completeTodo }}>
+    <ToDoContext.Provider value={{
+      ...values, ...contextValues, addTodo, completeTodo,
+    }}
+    >
       {children}
     </ToDoContext.Provider>
   );
+};
+
+ToDoProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  values: PropTypes.shape({
+    todos: PropTypes.array,
+  }),
+};
+
+ToDoProvider.defaultProps = {
+  values: {
+    todos: [],
+  },
 };
